@@ -28,24 +28,30 @@ version = "2025.03"
 
 project {
 
-    buildType(PrometheusFinal_Build)
+    buildType(PrometheusFinal_MR)
 }
 
-object PrometheusFinal_Build : BuildType({
-    id("Build")
-    name = "Build"
+object PrometheusFinal_MR : BuildType({
+    id("MR)
+    name = "TEST MR"
 
     vcs {
         root(DslContext.settingsRoot)
     }
-
     triggers {
         vcs {
+            branchFilter = "+:refs/merge-requests/*"
         }
     }
-
+    steps {
+        script {
+            name = "fake test MR"
+            scriptContent = "HELLO I'M TEST MR"
+        }
+    }
     features {
         perfmon {
         }
     }
 })
+
