@@ -40,7 +40,7 @@ object PrometheusFinal_MR : BuildType({
     }
     triggers {
         vcs {
-            branchFilter = "+:refs/merge-requests/*"
+            branchFilter = "+:refs/pull/*/head"
         }
     }
     steps {
@@ -54,4 +54,3 @@ object PrometheusFinal_MR : BuildType({
         }
     }
 })
-
