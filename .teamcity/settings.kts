@@ -32,7 +32,7 @@ project {
 }
 
 object PrometheusFinal_MR : BuildType({
-    id("MR)
+    id("MR")
     name = "TEST MR"
 
     vcs {
@@ -46,7 +46,7 @@ object PrometheusFinal_MR : BuildType({
     steps {
         script {
             name = "fake test MR"
-            scriptContent = "HELLO I'M TEST MR"
+            scriptContent = "HELLO I'M TEST MR-2"
         }
     }
     features {
