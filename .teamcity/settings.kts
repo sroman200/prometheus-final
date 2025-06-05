@@ -22,9 +22,10 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 */
 
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.project
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
-import jetbrains.buildServer.configs.kotlin.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
+import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 version = "2025.03"
 
