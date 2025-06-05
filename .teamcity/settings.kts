@@ -1,6 +1,3 @@
-import jetbrains.buildServer.configs.kotlin.*
-import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
-import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -25,18 +22,22 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 */
 
 import jetbrains.buildServer.configs.kotlin.*
-import jetbrains.buildServer.configs.kotlin.Project
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.triggers.vcs
+import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 
 version = "2025.03"
 
 project {
+
     name = "Prometheus Final"
-    buildType(TestMR)
+
+    buildType(BuildMR)
+
 }
 
-object TestMR : BuildType({
-    id("PrometheusFinal_TestMR")
+object BuildMR : BuildType({
+    id("BuildMR")
     name = "TEST MR"
 
     vcs {
@@ -45,7 +46,7 @@ object TestMR : BuildType({
 
     steps {
         script {
-            name = "Fake step"
+            name = "Print MR Test Message"
             scriptContent = """echo "HELLO I'M TEST MR""""
         }
     }
