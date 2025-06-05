@@ -24,7 +24,7 @@ object BuildMR : BuildType({
     steps {
         script {
             name = "Print MR Test Message"
-            scriptContent = """echo "HELLO I'M TEST MR""""
+            scriptContent = """echo "HELLO I'M TEST MR-2""""
         }
     }
 
