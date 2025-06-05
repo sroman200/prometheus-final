@@ -45,10 +45,13 @@ object PrometheusFinal_MR : BuildType({
     }
     steps {
         script {
-            name = "fake test MR"
-            scriptContent = "echo \"HELLO I'M TEST MR-2\""
+            name = "Fake MR test"
+            scriptContent = """
+                echo "HELLO I'M TEST MR"
+            """.trimIndent()
         }
     }
+
     features {
         perfmon {
         }
