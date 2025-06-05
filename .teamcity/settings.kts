@@ -24,36 +24,39 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 'Debug' option is available in the context menu for the task.
 */
 
+import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.Project
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
+
 version = "2025.03"
 
 project {
-
-    buildType(PrometheusFinal_MR)
+    name = "Prometheus Final"
+    buildType(TestMR)
 }
 
-object PrometheusFinal_MR : BuildType({
-    id("MR")
+object TestMR : BuildType({
+    id("PrometheusFinal_TestMR")
     name = "TEST MR"
 
     vcs {
         root(DslContext.settingsRoot)
     }
+
+    steps {
+        script {
+            name = "Fake step"
+            scriptContent = """echo "HELLO I'M TEST MR""""
+        }
+    }
+
     triggers {
         vcs {
             branchFilter = "+:refs/pull/*/head"
         }
     }
-    steps {
-        script {
-            name = "Fake MR test"
-            scriptContent = """
-                echo "HELLO I'M TEST MR"
-            """.trimIndent()
-        }
-    }
 
     features {
-        perfmon {
-        }
+        perfmon {}
     }
 })
