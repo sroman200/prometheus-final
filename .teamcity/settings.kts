@@ -19,6 +19,10 @@ object BuildMR : BuildType({
 
     vcs {
         root(DslContext.settingsRoot)
+        branchSpec = """
+        +:refs/heads/*
+        +:refs/pull/*/head
+    """.trimIndent()
     }
 
     steps {
